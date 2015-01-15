@@ -11,7 +11,7 @@ exports.onInstall = !->
 	Db.shared.set 'lost', {}
 	log 'Installed'
 
-exports.client_lost = ->
+exports.client_lost = (cb) ->
 	log 'id#', Plugin.userId(), ' ', Plugin.userName(), 'lost the game'
 	date = new Date()/1000
 	lastDate = Db.shared.get('counter', Plugin.userId(), 'date')
@@ -29,3 +29,7 @@ exports.client_lost = ->
 			unit: 'msg'
 			text: "#{name} just lost the game"
 			read: [Plugin.userId()]
+		
+		cb.reply "true"
+	else
+		cb.reply "false"

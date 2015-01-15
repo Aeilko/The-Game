@@ -5,10 +5,14 @@ Db = require 'db'
 Plugin = require 'plugin'
 Time = require 'time'
 Loglist = require 'loglist'
+Modal = require 'modal'
 
 exports.render = ->
 	Ui.bigButton 'I Lost the Game', ->
-		Server.call 'lost'
+		Server.call 'lost', (res) ->
+			if res=="false"
+				Modal.show "Je kan slechts eens per half uur de game verliezen"
+			
 	Ui.emptyText(" ")
 	Ui.list !->
 		Dom.h3 "Top losers"
