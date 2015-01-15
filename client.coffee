@@ -35,7 +35,7 @@ exports.render = ->
 	Ui.list !->
 		maxO = Db.shared.get('lostId')
 		firstO = maxO-9
-		if firstO < 0
+		if firstO < 1
 			firstO = 1
 		
 		Dom.h3 "Recent losers"
