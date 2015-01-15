@@ -1,2 +1,2 @@
 # The-Game
-A happening plugin for playing The Game
+A [Happening](http://happening.im) plugin for playing The Game
